@@ -38,10 +38,33 @@
       font-size:clamp(1rem,1vw+0.75rem,1.125rem);
       line-height:1.7;
     }
-    h1,h2,h3{font-family:'Nunito',system-ui,sans-serif;font-weight:700;color:var(--coffee-dark);line-height:1.3;}
-    h1{font-size:clamp(2rem,2vw+1.5rem,3rem);margin-bottom:0.5rem;}
-    h2{font-size:clamp(1.5rem,1.3vw+1.2rem,2.2rem);margin-bottom:1.25rem;}
-    h3{font-size:1.25rem;}
+    h1, h2, h3, h4 {
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-weight: 700;
+      color: var(--coffee-dark);
+      line-height: 1.3;
+      text-align: left;
+      margin-top: 0;
+    }
+    h1 {
+      font-size: clamp(2rem,2vw+1.5rem,3rem);
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: clamp(1.5rem,1.3vw+1.2rem,2.2rem);
+      margin-bottom: 1.25rem;
+      color: var(--coffee-dark);
+    }
+    h3 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    h4 {
+      font-size: 1.1rem;
+      color: var(--coffee-dark);
+      margin-bottom: 0.5rem;
+    }
 
     /* ---------- GLOBAL LAYOUT ---------- */
     section{max-width:960px;margin:0 auto;padding:3.5rem 1rem;}
@@ -177,17 +200,84 @@
     .meeting-info:hover{transform:translateY(-5px);box-shadow:0 6px 12px rgba(0,0,0,.1);}    
 
     /* ---------- CTA / CONTACT ---------- */
-    .cta{background:linear-gradient(135deg, var(--coffee-dark) 0%, var(--coffee) 100%);color:#fff;text-align:center;padding:4rem 1rem 4.5rem;border-radius:0 0 12px 12px;position:relative;}
-    .cta::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--sand);}
-    .cta h2{color:var(--sand);font-size:2rem;margin-bottom:1.5rem;text-shadow:0 1px 2px rgba(0,0,0,0.2);}
-    .cta-headline{font-size:1.5rem;margin-bottom:1.3rem;font-weight:700;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,0.1);}
-    .contact-container{display:flex;flex-direction:column;margin-top:2.5rem;justify-content:center;align-items:center;}
-    .contact-container.centered{max-width:500px;margin-left:auto;margin-right:auto;}
-    .contact-info{font-size:1.2rem;line-height:1.6;}
-    .contact-info a{color:#fff;text-decoration:none;font-weight:700;transition:color 0.2s,transform 0.2s;display:inline-block;padding:2px 0;}
-    .contact-info a:hover{text-decoration:underline;color:var(--sand);transform:translateY(-1px);}
-    .contact-method{margin-bottom:1.25rem;line-height:1.5;background:rgba(255,255,255,0.1);padding:1rem 1.5rem;border-radius:8px;display:inline-block;min-width:300px;backdrop-filter:blur(10px);}
-    .contact-person{margin-top:1.5rem;font-size:1rem;color:var(--sand);font-weight:400;}
+    .cta{
+      background: linear-gradient(135deg, var(--coffee-dark) 0%, var(--coffee) 100%);
+      color: #fff;
+      text-align: left;
+      padding: 4rem 1rem 4.5rem;
+      border-radius: 0 0 12px 12px;
+      position: relative;
+    }
+    .cta h2 {
+      color: var(--sand);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    .cta-headline {
+      font-size: 1.5rem;
+      margin-bottom: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .contact-container {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .contact-container.centered {
+      max-width: 600px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .contact-info {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      width: 100%;
+    }
+    .contact-method {
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+      background: rgba(255,255,255,0.18);
+      padding: 1.1rem 1.5rem 1.1rem 1.2rem;
+      border-radius: 10px;
+      display: block;
+      min-width: 220px;
+      max-width: 340px;
+      font-size: 1.1rem;
+      margin-right: 1.5rem;
+      margin-top: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .contact-method:last-child {
+      margin-right: 0;
+    }
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s,transform 0.2s;
+      display: inline-block;
+      padding: 2px 0;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+      color: var(--sand);
+      transform: translateY(-1px);
+    }
+    .contact-person {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: var(--sand);
+      font-weight: 400;
+      text-align: left;
+    }
     .contact-portrait {
       display: flex;
       justify-content: center;
@@ -238,6 +328,96 @@
       background:var(--coffee-dark);
       transform:translateY(-2px) scale(1.03);
     }
+
+    /* ---------- FAQ SECTION ---------- */
+    .faq-section {
+      background-color: #f8f6f3;
+      padding: 60px 0;
+      border-radius: 12px;
+      margin: 3rem auto;
+      max-width: 960px;
+    }
+    .faq-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--coffee-dark);
+    }
+    .faq-accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      cursor: pointer;
+      border-left: 4px solid var(--accent);
+      transition: box-shadow 0.2s;
+    }
+    .faq-item.active {
+      box-shadow: 0 4px 16px rgba(140,107,80,0.10);
+    }
+    .faq-question {
+      padding: 1.2rem 1.5rem;
+      font-weight: 700;
+      color: var(--coffee-dark);
+      font-size: 1.1rem;
+      background: #fbf9f6;
+      user-select: none;
+    }
+    .faq-answer {
+      padding: 1.2rem 1.5rem;
+      color: var(--text);
+      display: none;
+      border-top: 1px solid #f0eae2;
+      background: #fff;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    /* ---------- ABOUT INITIATOR ---------- */
+    .about-initiator {
+      background-color: #fff;
+      padding: 80px 0 40px 0;
+      border-radius: 12px;
+      margin: 3rem auto 0 auto;
+      max-width: 960px;
+    }
+    .about-initiator .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .about-initiator .content-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+    .about-initiator .image-content {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    .about-initiator .image-content img {
+      margin: 0 0 1.5rem 0;
+    }
+    .about-initiator .text-content h2 {
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .about-initiator .text-content p {
+      margin-bottom: 1.1rem;
+    }
+    @media(max-width: 800px) {
+      .about-initiator .image-content img {
+        width: 98vw;
+        max-width: 98vw;
+      }
+    }
   </style>
 </head>
 <body>
@@ -277,8 +457,8 @@
     <section class="about fade-up" id="about">
       <h1>Über uns</h1>
       <picture>
-        <source srcset="./images/image_maenner_kaffee.webp" type="image/webp">
-        <img src="./images/image_maenner_kaffee.png" alt="Drei ältere Herren im Gespräch bei Kaffee im soluscafe" loading="lazy" />
+        <source srcset="./images/maennerkaffee.webp" type="image/webp">
+        <img src="./images/maennerkaffee.png" alt="Drei ältere Herren im Gespräch bei Kaffee im soluscafe" loading="lazy" />
       </picture>
       <p>Das <strong>soluscafe</strong> ist eine Austauschrunde von Männern, die ihr Leben nach dem Verlust der langjährigen Ehefrau oder Partnerin neu gestalten möchten. Wir sind eine <em>Selbsthilfegruppe</em> &ndash; kein Verein, keine Mitgliedsbeiträge, keine Verpflichtungen.</p>
       <p>Trauer ist eine natürliche Reaktion, die jeder Hinterbliebene auf seine eigene Weise erlebt. Im soluscafe helfen wir einander, den Blick wieder nach vorn zu richten, Selbstbestimmung und Lebensfreude zurückzugewinnen.</p>
@@ -316,9 +496,6 @@
         <div class="quote">
           „Es tut gut zu merken: Ich bin nicht allein mit meinen Gedanken."
         </div>
-        <div class="quote">
-          „Hier geht's nicht um Ratschläge, sondern ums Zuhören. Und genau das hat mir am meisten geholfen.“
-        </div>
       </div>
     </section>
 
@@ -342,30 +519,83 @@
       </div>
     </section>
 
-    <!-- ================ CTA / CONTACT =============== -->
-    <section class="cta fade-up" id="kontakt">
-      <h2>Kontakt aufnehmen</h2>
-      <p class="cta-headline">Nehmen Sie den ersten Schritt zu neuen Perspektiven!</p>
-      <p>Erfahren Sie unverbindlich, wann unser nächstes Treffen stattfindet. Ein Telefonat oder eine E-Mail genügt – wir freuen uns auf Sie.</p>
-      
-      <div class="contact-container centered">
-        <div class="contact-info">
-          <div class="contact-portrait">
+    <!-- ================ ABOUT INITIATOR =============== -->
+    <section class="about-initiator fade-up" id="initiator">
+      <div class="container">
+        <h2>Über den Initiator</h2>
+        <div class="content-grid">
+          <div class="image-content">
             <picture>
               <source srcset="images/dorniak.webp" type="image/webp">
               <img src="images/dorniak.jpg" alt="Porträt von Constanz Dorniak, Initiator soluscafe" loading="lazy" />
             </picture>
           </div>
+          <div class="text-content">
+            <h3>Constanz Dorniak – Die Idee hinter dem soluscafe</h3>
+            <p><em>"Ich wollte doch nach vorne schauen!"</em> – Diese Worte beschreiben am besten, was Constanz Dorniak antreibt. Der 66-jährige Rentner aus Dinklage gründete das soluscafe aus einer sehr persönlichen Erfahrung heraus.</p>
+            <h4>Seine Geschichte</h4>
+            <p>2020 verlor Constanz seine Frau Irmgard nach kurzer schwerer Krankheit. In den Monaten danach suchte er nach Austausch mit anderen Männern in ähnlicher Situation – und fand im Umkreis von 150 Kilometern nichts Passendes. Die vorhandenen Angebote fokussierten sich oft nur auf Trauer und Verlust, aber er suchte etwas anderes: einen Ort, wo Männer gemeinsam nach vorne blicken können.</p>
+            <h4>Der Wendepunkt</h4>
+            <p>Als ehemaliger Vertriebler machte Constanz eine wichtige Entdeckung: Gespräche mit seinen Geschäftspartnern – also mit Menschen außerhalb des engsten Kreises – halfen ihm mehr als gut gemeinte Ratschläge von Bekannten. "Es flossen auch Tränen dabei, aber die Gespräche haben mir gutgetan."</p>
+            <h4>Die Vision</h4>
+            <p>Daraus entstand die Idee für das soluscafe: Ein Ort, wo Männer mit der gleichen Erfahrung sich gegenseitig zuhören, sich stärken und gemeinsam nach vorne schauen können. Nicht als Trauercafé, sondern als Ort der Stärkung und des Neuanfangs.</p>
+            <h4>Heute</h4>
+            <p>Constanz hat sein großes Haus verkauft, reist viel und schaut optimistisch in die Zukunft. Trotzdem weiß er: "Das Schlimmste ist die Winterzeit allein zu Hause." Deshalb lädt er andere Männer ein, aktiv etwas dagegen zu tun.</p>
+            <p><strong>"Wir wollen einander helfen, ins Leben zurückzukommen!"</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================ FAQ SECTION =============== -->
+    <section class="faq-section fade-up" id="faq">
+      <div class="container">
+        <h2>Häufig gestellte Fragen</h2>
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <div class="faq-question">Was erwartet mich beim ersten Besuch?</div>
+            <div class="faq-answer">Ein entspannter Nachmittag bei Kaffee und Kuchen. Sie werden herzlich begrüßt und können erstmal zuhören. Es gibt keinen Zwang zu sprechen – Sie bestimmen selbst, wann und wie viel Sie teilen möchten. Unsere Runde ist klein und vertraut.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Muss ich mich vorab anmelden?</div>
+            <div class="faq-answer">Ja, eine kurze Anmeldung per Telefon oder WhatsApp ist hilfreich, damit wir planen können. So können wir auch vorab Ihre Fragen beantworten und Ihnen den genauen Termin mitteilen.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Kostet die Teilnahme etwas?</div>
+            <div class="faq-answer">Nein, die Teilnahme am soluscafe ist vollkommen kostenfrei. Wir sind eine Selbsthilfegruppe ohne Mitgliedsbeiträge oder versteckte Kosten. Lediglich das, was Sie bei unseren Treffen verzehren (z.B. Kaffee, Kuchen), zahlt jeder selbst.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Wie vertraulich sind unsere Gespräche?</div>
+            <div class="faq-answer">Absolute Vertraulichkeit ist uns heilig. Was in unserer Runde gesprochen wird, bleibt in unserer Runde. Das ist die Grundlage für das Vertrauen, das wir aufbauen.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Bin ich verpflichtet, regelmäßig zu kommen?</div>
+            <div class="faq-answer">Nein, es gibt keine Verpflichtungen. Kommen Sie, wann es Ihnen gut tut. Manche besuchen uns jeden Monat, andere nur gelegentlich – beides ist völlig in Ordnung.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Was ist, wenn ich sehr emotional werde?</div>
+            <div class="faq-answer">Das ist völlig normal und in Ordnung. Wir alle kennen diese Momente. In unserer Runde dürfen Gefühle sein – Tränen gehören genauso dazu wie Lachen.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================ CTA / CONTACT =============== -->
+    <section class="cta fade-up" id="kontakt">
+      <h2>Kontakt aufnehmen</h2>
+      <p class="cta-headline">Nehmen Sie den ersten Schritt zu neuen Perspektiven!</p>
+      <p>Erfahren Sie unverbindlich, wann unser nächstes Treffen stattfindet. Ein Telefonat oder eine E-Mail genügt – wir freuen uns auf Sie.</p>
+      <div class="contact-container centered">
+        <div class="contact-info">
+          <!-- Bild entfernt, da jetzt im Initiator-Bereich -->
           <div class="contact-method">
             <span>📱 Mobil / WhatsApp:</span><br>
             <a href="https://wa.me/491621985824" target="_blank" rel="noopener">0162&nbsp;198&nbsp;5824</a>
           </div>
-          
           <div class="contact-method">
             <span>✉️ E-Mail:</span><br>
             <a href="mailto:constanz@soluscafe.de">constanz@soluscafe.de</a>
           </div>
-          
           <p class="contact-person">Ihr Ansprechpartner: <strong>Constanz Dorniak</strong></p>
         </div>
       </div>
@@ -402,6 +632,13 @@
       
       document.querySelectorAll('section.fade-up').forEach(section => {
         observer.observe(section);
+      });
+
+      // FAQ Accordion
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
       });
     });
   </script>
