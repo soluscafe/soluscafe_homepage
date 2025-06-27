@@ -38,7 +38,7 @@
       font-size:clamp(1rem,1vw+0.75rem,1.125rem);
       line-height:1.7;
     }
-    h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;color:var(--coffee-dark);line-height:1.3;}
+    h1,h2,h3{font-family:'Nunito',system-ui,sans-serif;font-weight:700;color:var(--coffee-dark);line-height:1.3;}
     h1{font-size:clamp(2rem,2vw+1.5rem,3rem);margin-bottom:0.5rem;}
     h2{font-size:clamp(1.5rem,1.3vw+1.2rem,2.2rem);margin-bottom:1.25rem;}
     h3{font-size:1.25rem;}
@@ -50,11 +50,22 @@
     .visible{opacity:1;transform:none;}
 
     /* ---------- NAV ---------- */
-    .nav{position:fixed;top:0;left:0;right:0;height:60px;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(10px);display:flex;align-items:center;justify-content:flex-end;padding:0 1.25rem;gap:1.5rem;font-weight:700;font-size:.95rem;z-index:1000;box-shadow:0 1px 3px rgba(0,0,0,0.1);transition:background 0.3s;}
+    .nav{position:fixed;top:0;left:0;right:0;height:60px;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(10px);display:flex;align-items:center;justify-content:flex-start;padding:0 1.25rem;gap:1.5rem;font-weight:700;font-size:.95rem;z-index:1000;box-shadow:0 1px 3px rgba(0,0,0,0.1);transition:background 0.3s;}
+    .nav-links { display: flex; gap: 1.5rem; margin-left: 1.5rem; }
     .nav a{color:var(--coffee-dark);text-decoration:none;position:relative;transition:color 0.3s;}
     .nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:width .3s;}
     .nav a:hover{color:var(--accent);}
     .nav a:hover::after{width:100%;background:var(--accent);}
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: none;
+      padding: 0;
+    }
 
     /* ---------- HERO (ÜBERARBEITET) ---------- */
     .hero{
@@ -232,9 +243,17 @@
 <body>
   <!-- ================= NAV ================= -->
   <nav class="nav" aria-label="Hauptnavigation">
-    <a href="#about">Über uns</a>
-    <a href="#treffen">Treffen</a>
-    <a href="#kontakt">Kontakt</a>
+    <a href="index.html" class="nav-logo" style="display:flex;align-items:center;">
+      <picture>
+        <source srcset="images/logo_soluscafe.webp" type="image/webp">
+        <img src="images/logo_soluscafe.png" alt="soluscafe Logo klein" style="height:36px;width:auto;display:block;" />
+      </picture>
+    </a>
+    <div class="nav-links">
+      <a href="#about">Über uns</a>
+      <a href="#treffen">Treffen</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
   </nav>
 
   <!-- ================= HERO ================= -->
@@ -264,9 +283,7 @@
       <p>Das <strong>soluscafe</strong> ist eine Austauschrunde von Männern, die ihr Leben nach dem Verlust der langjährigen Ehefrau oder Partnerin neu gestalten möchten. Wir sind eine <em>Selbsthilfegruppe</em> &ndash; kein Verein, keine Mitgliedsbeiträge, keine Verpflichtungen.</p>
       <p>Trauer ist eine natürliche Reaktion, die jeder Hinterbliebene auf seine eigene Weise erlebt. Im soluscafe helfen wir einander, den Blick wieder nach vorn zu richten, Selbstbestimmung und Lebensfreude zurückzugewinnen.</p>
 
-      <button class="more-info-toggle" onclick="toggleMoreInfo()" id="toggleBtn">Mehr über das soluscafe erfahren</button>
-
-      <div id="more-info" class="more-info-content">
+      <div id="more-info" class="more-info-content" style="display:block;">
         <h3>Worum geht es?</h3>
         <p>In unserer Austauschrunde beschäftigen wir uns freiwillig, ohne fachliche Begleitung und in einem vertraulichen Rahmen mit Fragen wie:</p>
         <ul>
@@ -310,6 +327,10 @@
       <h2>Unsere Treffen</h2>
       <div class="meetings">
         <div class="meeting-info">
+          <h3>Ablauf</h3>
+          <p>Begrüßung bei Kaffee & Kuchen, lockere Gesprächsrunde, Austausch von Erfahrungen und Planung gemeinsamer Aktivitäten.</p>
+        </div>
+        <div class="meeting-info">
           <h3>Nächster Termin</h3>
           <p>Wir treffen uns etwa alle 4&nbsp;Wochen – den genauen Termin erfahren Sie auf Anfrage.</p>
         </div>
@@ -317,10 +338,6 @@
           <h3>Ort</h3>
           <p>Sankt Antoniushaus</p>
           <p>Klingenhagen&nbsp;6, 49377 Vechta</p>
-        </div>
-        <div class="meeting-info">
-          <h3>Ablauf</h3>
-          <p>Begrüßung bei Kaffee & Kuchen, lockere Gesprächsrunde, Austausch von Erfahrungen und Planung gemeinsamer Aktivitäten.</p>
         </div>
       </div>
     </section>
@@ -363,21 +380,6 @@
 
   <!-- ================ SCRIPTS ============== -->
   <script>
-    // Toggle-Box "Mehr über das soluscafe"
-    function toggleMoreInfo(){
-      const more = document.getElementById('more-info');
-      const btn  = document.getElementById('toggleBtn');
-      if(more.style.display === 'block'){
-        more.style.display = 'none';
-        btn.textContent = 'Mehr über das soluscafe erfahren';
-        btn.classList.remove('active');
-      }else{
-        more.style.display = 'block';
-        btn.textContent = 'Weniger anzeigen';
-        btn.classList.add('active');
-      }
-    }
-
     // Animationen beim Scrollen
     document.addEventListener('DOMContentLoaded', function() {
       // Initial animation for hero elements
