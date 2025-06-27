@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="soluscafe: Selbsthilfegruppe für Männer im Landkreis Vechta (Vechta, Dinklage, Lohne), die nach dem Verlust ihrer Partnerin neue Wege gehen möchten. Austausch, Unterstützung und neue Perspektiven in Ihrer Region." />
+  <meta name="keywords" content="Selbsthilfegruppe, Männer, Trauer, Vechta, Dinklage, Lohne, Landkreis Vechta, Austausch, soluscafe" />
+  <link rel="canonical" href="https://www.soluscafe.de/" />
+  <meta property="og:title" content="soluscafe – Gemeinsam statt einsam" />
+  <meta property="og:description" content="Selbsthilfegruppe für Männer nach dem Verlust der Partnerin. Treffen, Austausch und neue Perspektiven in Vechta." />
+  <meta property="og:image" content="images/logo_soluscafe.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <title>soluscafe – Gemeinsam statt einsam</title>
+
+  <!-- Google-Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Pfad anpassen entsprechend deiner Ordnerstruktur -->
+  <link rel="shortcut icon" href="images/logo_soluscafe.png" type="image/png">
+
+  <style>
+    /* ---------- COLORS & TYPO ---------- */
+    :root{
+      --coffee-dark:#8C6B50;
+      --coffee:#B17A5C;
+      --sand:#F5EFE6;
+      --text:#59493E;
+      --stone:#7C7168;
+      --accent:#C9A183; /* Neues Braun als Akzentfarbe, passend zum Flyer */
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Nunito',system-ui,sans-serif;
+      background:var(--sand);
+      color:var(--text);
+      font-size:clamp(1rem,1vw+0.75rem,1.125rem);
+      line-height:1.7;
+    }
+    h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;color:var(--coffee-dark);line-height:1.3;}
+    h1{font-size:clamp(2rem,2vw+1.5rem,3rem);margin-bottom:0.5rem;}
+    h2{font-size:clamp(1.5rem,1.3vw+1.2rem,2.2rem);margin-bottom:1.25rem;}
+    h3{font-size:1.25rem;}
+
+    /* ---------- GLOBAL LAYOUT ---------- */
+    section{max-width:960px;margin:0 auto;padding:3.5rem 1rem;}
+    img{max-width:100%;height:auto;border-radius:8px;}
+    .fade-up{opacity:0;transform:translateY(40px);transition:all .6s ease-out;}
+    .visible{opacity:1;transform:none;}
+
+    /* ---------- NAV ---------- */
+    .nav{position:fixed;top:0;left:0;right:0;height:60px;background:rgba(255,255,255,.95);backdrop-filter:saturate(180%) blur(10px);display:flex;align-items:center;justify-content:flex-end;padding:0 1.25rem;gap:1.5rem;font-weight:700;font-size:.95rem;z-index:1000;box-shadow:0 1px 3px rgba(0,0,0,0.1);transition:background 0.3s;}
+    .nav a{color:var(--coffee-dark);text-decoration:none;position:relative;transition:color 0.3s;}
+    .nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:width .3s;}
+    .nav a:hover{color:var(--accent);}
+    .nav a:hover::after{width:100%;background:var(--accent);}
+
+    /* ---------- HERO (ÜBERARBEITET) ---------- */
+    .hero{
+      position:relative;
+      text-align:center;
+      padding:6rem 1rem 5rem;
+      background:linear-gradient(135deg, var(--coffee) 0%, var(--coffee-dark) 100%);
+      color:#fff;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url('images/hero-bg.jpg') center/cover no-repeat;
+      opacity:0.2;
+      z-index:0;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(177,122,92,0.95) 0%, rgba(140,107,80,0.95) 100%);
+      z-index:1;
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:800px;
+      margin:0 auto;
+      padding:3rem 2rem;
+      background:rgba(255,255,255,0.1);
+      border-radius:16px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 4px 30px rgba(0,0,0,0.1);
+      border:1px solid rgba(255,255,255,0.2);
+    }
+    .logo{
+      width:320px;
+      margin:0 auto 2rem;
+      filter:drop-shadow(0 6px 24px rgba(140,107,80,0.18));
+      transition:transform 0.3s ease;
+      background:none;
+      padding:0;
+      border-radius:0;
+      box-shadow:none;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .logo img {
+      width:100%;
+      height:auto;
+    }
+    .tagline{
+      font-size:clamp(1.25rem,1.2vw+1rem,1.6rem);
+      color:var(--sand);
+      margin-bottom:1rem;
+      font-weight:700;
+      text-shadow:0 1px 2px rgba(0,0,0,0.2);
+    }
+    .pitch{
+      font-size:clamp(1rem,1vw+0.7rem,1.25rem);
+      max-width:650px;
+      margin:0 auto 1.5rem;
+      color:#fff;
+    }
+    .scroll-down{
+      display:inline-block;
+      font-size:2rem;
+      color:var(--sand);
+      animation:bounce 2s infinite .3s;
+      margin-top:1.5rem;
+      text-shadow:0 2px 4px rgba(0,0,0,0.3);
+    }
+    @keyframes bounce{
+      0%,20%,50%,80%,100%{transform:translateY(0);}
+      40%{transform:translateY(-10px);}
+      60%{transform:translateY(-5px);}
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about{background:#fff;border-radius:12px;padding:2.25rem;box-shadow:0 4px 10px rgba(0,0,0,.05);} 
+    .about img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:transform 0.4s ease;margin-bottom:1.5rem;}
+    .about img:hover{transform: scale(1.02);}
+    /* ---------- BUTTONS ---------- */
+    .more-info-toggle{background:var(--sand);border:2px solid var(--accent);color:var(--accent);padding:.6rem 1.25rem;border-radius:30px;cursor:pointer;font-weight:700;margin:1.25rem 0 0;transition:all .3s ease;}
+    .more-info-toggle:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
+    .more-info-toggle.active{background:var(--accent);color:#fff;}
+    /* ---------- MORE INFO SECTION ---------- */
+    .more-info-content{display:none;margin-top:1.5rem;background:#fbf9f6;padding:1.5rem;border-radius:8px;border-left:3px solid var(--accent);}
+    .more-info-content h3{margin-top:1.5rem;margin-bottom:0.75rem;color:var(--accent);font-size:1.3rem;}
+    .more-info-content h3:first-child{margin-top:0;}
+    .more-info-content ul{margin-left:1.5rem;list-style:disc;margin-bottom:1rem;}
+    .more-info-content ul li{margin-bottom:0.5rem;line-height:1.5;}
+    .more-info-content p{margin-bottom:1rem;}
+    .more-info-content p:last-child{margin-bottom:0;}
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonials-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:2rem;}
+    .quote{background:#fff;border-left:4px solid var(--accent);padding:1.25rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.05);font-style:italic;position:relative;transition:transform 0.3s ease;}
+    .quote:hover{transform:translateY(-5px);box-shadow:0 6px 12px rgba(0,0,0,.1);}
+    .quote::before{content:"\201C";position:absolute;left:.5rem;top:-.5rem;font-size:3rem;color:var(--accent);opacity:.2;}
+    .quote cite{display:block;margin-top:.75rem;font-style:normal;font-weight:700;color:var(--coffee-dark);}
+
+    /* ---------- MEETINGS ---------- */
+    .meetings{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem;}
+    .meeting-info{background:#fff;border-radius:12px;padding:1.5rem;box-shadow:0 4px 8px rgba(0,0,0,.06);transition:transform 0.3s ease;}  
+    .meeting-info:hover{transform:translateY(-5px);box-shadow:0 6px 12px rgba(0,0,0,.1);}    
+
+    /* ---------- CTA / CONTACT ---------- */
+    .cta{background:linear-gradient(135deg, var(--coffee-dark) 0%, var(--coffee) 100%);color:#fff;text-align:center;padding:4rem 1rem 4.5rem;border-radius:0 0 12px 12px;position:relative;}
+    .cta::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--sand);}
+    .cta h2{color:var(--sand);font-size:2rem;margin-bottom:1.5rem;text-shadow:0 1px 2px rgba(0,0,0,0.2);}
+    .cta-headline{font-size:1.5rem;margin-bottom:1.3rem;font-weight:700;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,0.1);}
+    .contact-container{display:flex;flex-direction:column;margin-top:2.5rem;justify-content:center;align-items:center;}
+    .contact-container.centered{max-width:500px;margin-left:auto;margin-right:auto;}
+    .contact-info{font-size:1.2rem;line-height:1.6;}
+    .contact-info a{color:#fff;text-decoration:none;font-weight:700;transition:color 0.2s,transform 0.2s;display:inline-block;padding:2px 0;}
+    .contact-info a:hover{text-decoration:underline;color:var(--sand);transform:translateY(-1px);}
+    .contact-method{margin-bottom:1.25rem;line-height:1.5;background:rgba(255,255,255,0.1);padding:1rem 1.5rem;border-radius:8px;display:inline-block;min-width:300px;backdrop-filter:blur(10px);}
+    .contact-person{margin-top:1.5rem;font-size:1rem;color:var(--sand);font-weight:400;}
+    .contact-portrait {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .contact-portrait img {
+      width: 300px;
+      height: auto;
+      max-width: 100%;
+      object-fit: cover;
+      box-shadow: 0 4px 16px rgba(140,107,80,0.18);
+      background: #f5efe6;
+      display: block;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer{background:var(--coffee-dark);color:#fff;text-align:center;font-size:.9rem;padding:2rem 1rem;border-top:4px solid var(--accent);}
+    footer a{color:var(--sand);text-decoration:none;transition:color 0.2s;}
+    footer a:hover{text-decoration:underline;color:#fff;}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:900px){
+      .nav{font-size:0.9rem;gap:1rem;padding:0 0.5rem;}
+    }
+    @media(max-width:600px){
+      .nav{height:50px;font-size:0.95rem;gap:0.5rem;justify-content:center;}
+      .hero{padding:5rem 0.5rem 3rem;}
+      .hero-content{padding:1.2rem 0.5rem;}
+      .logo{width:180px;padding:0;}
+      .cta-hero-btn{font-size:1rem;padding:0.7rem 1.2rem;}
+    }
+    .cta-hero-btn{
+      display:inline-block;
+      margin:1.2rem auto 0;
+      padding:0.85rem 2.2rem;
+      background:var(--accent);
+      color:#fff;
+      font-weight:700;
+      font-size:1.1rem;
+      border:none;
+      border-radius:30px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      text-decoration:none;
+      transition:background 0.2s,transform 0.2s;
+      cursor:pointer;
+    }
+    .cta-hero-btn:hover{
+      background:var(--coffee-dark);
+      transform:translateY(-2px) scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <!-- ================= NAV ================= -->
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="#about">Über uns</a>
+    <a href="#treffen">Treffen</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <div class="hero-content fade-up">
+      <div class="logo">
+        <picture>
+          <source srcset="images/logo_soluscafe.webp" type="image/webp">
+          <img src="images/logo_soluscafe.png" alt="soluscafe Logo – zwei Figuren halten eine Kaffeetasse" loading="lazy" />
+        </picture>
+      </div>
+      <p class="tagline fade-up">Gemeinsam statt einsam</p>
+      <p class="pitch fade-up">Wir sind Männer, die ihre Partnerin verloren haben. Bei Kaffee und Gesprächen finden wir gemeinsam neue Perspektiven.</p>
+      <a href="#kontakt" class="cta-hero-btn fade-up">Jetzt Kontakt aufnehmen</a>
+      <span class="scroll-down" aria-hidden="true">⌄</span>
+    </div>
+  </header>
+
+  <main role="main">
+    <!-- ================ ABOUT =============== -->
+    <section class="about fade-up" id="about">
+      <h1>Über uns</h1>
+      <picture>
+        <source srcset="./images/image_maenner_kaffee.webp" type="image/webp">
+        <img src="./images/image_maenner_kaffee.png" alt="Drei ältere Herren im Gespräch bei Kaffee im soluscafe" loading="lazy" />
+      </picture>
+      <p>Das <strong>soluscafe</strong> ist eine Austauschrunde von Männern, die ihr Leben nach dem Verlust der langjährigen Ehefrau oder Partnerin neu gestalten möchten. Wir sind eine <em>Selbsthilfegruppe</em> &ndash; kein Verein, keine Mitgliedsbeiträge, keine Verpflichtungen.</p>
+      <p>Trauer ist eine natürliche Reaktion, die jeder Hinterbliebene auf seine eigene Weise erlebt. Im soluscafe helfen wir einander, den Blick wieder nach vorn zu richten, Selbstbestimmung und Lebensfreude zurückzugewinnen.</p>
+
+      <button class="more-info-toggle" onclick="toggleMoreInfo()" id="toggleBtn">Mehr über das soluscafe erfahren</button>
+
+      <div id="more-info" class="more-info-content">
+        <h3>Worum geht es?</h3>
+        <p>In unserer Austauschrunde beschäftigen wir uns freiwillig, ohne fachliche Begleitung und in einem vertraulichen Rahmen mit Fragen wie:</p>
+        <ul>
+          <li>Wie gehe ich mit der Einsamkeit um?</li>
+          <li>Wie gestalte ich mein Leben neu?</li>
+          <li>Welche neuen Aktivitäten kann ich einbinden?</li>
+          <li>Wie verliere ich mich und meine Gesundheit nicht aus den Augen?</li>
+          <li>Wie kann ich trotz Trauer wieder Freude am Leben finden?</li>
+        </ul>
+        <p>Wir unterstützen und stärken uns gegenseitig, um Selbstbestimmung, Autonomie und Lebensfreude zu entwickeln.</p>
+        
+        <h3>Wie nehme ich Kontakt auf?</h3>
+        <p>Nehmen Sie Ihr Leben in die Hand und suchen Sie gemeinsam mit anderen Betroffenen nach Lösungen! Der erste Schritt ist ganz einfach und unverbindlich – melden Sie sich bei uns:</p>
+        <p><strong>Constanz Dorniak</strong><br>
+           Mobil / WhatsApp: <a href="tel:+491621985824">0162&nbsp;198&nbsp;5824</a><br>
+           E-Mail: <a href="mailto:constanz@soluscafe.de">constanz@soluscafe.de</a></p>
+      </div>
+    </section>
+
+    <!-- ================ TESTIMONIALS =============== -->
+    <section class="fade-up" id="testimonials">
+      <h2>Stimmen aus dem soluscafe</h2>
+      <div class="testimonials-grid">
+        <div class="quote">
+          „Ich war skeptisch, ob das was für mich ist – aber nach dem ersten Nachmittag war klar: Hier versteht man mich wirklich.“
+        </div>
+        <div class="quote">
+          „Im soluscafe konnte ich zum ersten Mal offen über meine Situation sprechen, ohne mich erklären oder schämen zu müssen.“
+        </div>
+        <div class="quote">
+          „Es tut gut zu merken: Ich bin nicht allein mit meinen Gedanken."
+        </div>
+        <div class="quote">
+          „Hier geht's nicht um Ratschläge, sondern ums Zuhören. Und genau das hat mir am meisten geholfen.“
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== MEETINGS ============== -->
+    <section id="treffen" class="fade-up">
+      <h2>Unsere Treffen</h2>
+      <div class="meetings">
+        <div class="meeting-info">
+          <h3>Nächster Termin</h3>
+          <p>Wir treffen uns etwa alle 4&nbsp;Wochen – den genauen Termin erfahren Sie auf Anfrage.</p>
+        </div>
+        <div class="meeting-info">
+          <h3>Ort</h3>
+          <p>Sankt Antoniushaus</p>
+          <p>Klingenhagen&nbsp;6, 49377 Vechta</p>
+        </div>
+        <div class="meeting-info">
+          <h3>Ablauf</h3>
+          <p>Begrüßung bei Kaffee & Kuchen, lockere Gesprächsrunde, Austausch von Erfahrungen und Planung gemeinsamer Aktivitäten.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================ CTA / CONTACT =============== -->
+    <section class="cta fade-up" id="kontakt">
+      <h2>Kontakt aufnehmen</h2>
+      <p class="cta-headline">Nehmen Sie den ersten Schritt zu neuen Perspektiven!</p>
+      <p>Erfahren Sie unverbindlich, wann unser nächstes Treffen stattfindet. Ein Telefonat oder eine E-Mail genügt – wir freuen uns auf Sie.</p>
+      
+      <div class="contact-container centered">
+        <div class="contact-info">
+          <div class="contact-portrait">
+            <picture>
+              <source srcset="images/dorniak.webp" type="image/webp">
+              <img src="images/dorniak.jpg" alt="Porträt von Constanz Dorniak, Initiator soluscafe" loading="lazy" />
+            </picture>
+          </div>
+          <div class="contact-method">
+            <span>📱 Mobil / WhatsApp:</span><br>
+            <a href="https://wa.me/491621985824" target="_blank" rel="noopener">0162&nbsp;198&nbsp;5824</a>
+          </div>
+          
+          <div class="contact-method">
+            <span>✉️ E-Mail:</span><br>
+            <a href="mailto:constanz@soluscafe.de">constanz@soluscafe.de</a>
+          </div>
+          
+          <p class="contact-person">Ihr Ansprechpartner: <strong>Constanz Dorniak</strong></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ============== -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 soluscafe – Selbsthilfegruppe für Witwer | Initiiert von Constanz Dorniak</p>
+    <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+  </footer>
+
+  <!-- ================ SCRIPTS ============== -->
+  <script>
+    // Toggle-Box "Mehr über das soluscafe"
+    function toggleMoreInfo(){
+      const more = document.getElementById('more-info');
+      const btn  = document.getElementById('toggleBtn');
+      if(more.style.display === 'block'){
+        more.style.display = 'none';
+        btn.textContent = 'Mehr über das soluscafe erfahren';
+        btn.classList.remove('active');
+      }else{
+        more.style.display = 'block';
+        btn.textContent = 'Weniger anzeigen';
+        btn.classList.add('active');
+      }
+    }
+
+    // Animationen beim Scrollen
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initial animation for hero elements
+      setTimeout(() => {
+        document.querySelectorAll('.hero .fade-up').forEach((el, i) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, i * 200);
+        });
+      }, 100);
+      
+      // Animation for sections when scrolling
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {threshold: 0.2});
+      
+      document.querySelectorAll('section.fade-up').forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>
